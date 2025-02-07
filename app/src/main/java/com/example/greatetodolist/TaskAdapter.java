@@ -29,7 +29,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         return new TaskViewHolder(view);
     }
 
-    @Override
+    @Override // gán giá trị cho các thành phần giao diện trong ViewHolder
     public void onBindViewHolder(@NonNull TaskViewHolder holder, int position) {
         Task task = taskList.get(position); // lấy ra 1 task
         holder.taskNameTextView.setText(task.taskName); // lấy ra tên của task
@@ -45,14 +45,14 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
     // tham chiếu đến các thành phần giao diện trong item_task.xml
     class TaskViewHolder extends RecyclerView.ViewHolder {
         private TextView taskNameTextView;
-//        private TextView taskDescriptionTextView;
+//        private TextView taskDescriptionTextView; // TODO: xử lý sau
         private TextView taskPriorityTextView;
         private CheckBox completedCheckBox;
 
         public TaskViewHolder(View itemView) {
             super(itemView);
             taskNameTextView = itemView.findViewById(R.id.taskNameTextView);
-//            taskDescriptionTextView = itemView.findViewById(R.id.taskDescriptionTextView);
+//            taskDescriptionTextView = itemView.findViewById(R.id.taskDescriptionTextView); // TODO: xử lý sau
             taskPriorityTextView = itemView.findViewById(R.id.taskPriorityTextView);
 
             completedCheckBox = itemView.findViewById(R.id.completedCheckBox);

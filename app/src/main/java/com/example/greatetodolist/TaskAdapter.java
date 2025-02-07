@@ -3,6 +3,7 @@ package com.example.greatetodolist;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -33,26 +34,28 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         Task task = taskList.get(position); // lấy ra 1 task
         holder.taskNameTextView.setText(task.taskName); // lấy ra tên của task
         holder.taskPriorityTextView.setText(String.valueOf(task.taskPriority)); // lấy ra độ ưu tiên của task
-
-
+        holder.completedCheckBox.setChecked(task.isCompleted); // lấy ra trạng thái của task
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return taskList.size(); // trả về số lượng task
     }
 
+    // tham chiếu đến các thành phần giao diện trong item_task.xml
     class TaskViewHolder extends RecyclerView.ViewHolder {
         private TextView taskNameTextView;
 //        private TextView taskDescriptionTextView;
         private TextView taskPriorityTextView;
-        private boolean taskCompleted;
+        private CheckBox completedCheckBox;
 
         public TaskViewHolder(View itemView) {
             super(itemView);
             taskNameTextView = itemView.findViewById(R.id.taskNameTextView);
 //            taskDescriptionTextView = itemView.findViewById(R.id.taskDescriptionTextView);
             taskPriorityTextView = itemView.findViewById(R.id.taskPriorityTextView);
+
+            completedCheckBox = itemView.findViewById(R.id.completedCheckBox);
 
         }
     }

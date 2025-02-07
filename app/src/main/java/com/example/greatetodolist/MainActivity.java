@@ -1,5 +1,6 @@
 package com.example.greatetodolist;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -31,14 +32,19 @@ public class MainActivity extends AppCompatActivity {
         if (TempMemory.tasks == null){
             TempMemory.tasks = new ArrayList<>();
             // thêm 100 task vào danh sách
-            for (int i = 0; i < 100; i++){
-                TempMemory.tasks.add(new Task("Task " + i, "Description " + i, false, 3));
-            }
+//            for (int i = 0; i < 100; i++){
+//                TempMemory.tasks.add(new Task("Task " + i, "Description " + i, true, 3));
+//            }
         }
 
         taskAdapter = new TaskAdapter(TempMemory.tasks); // khởi tạo adapter với danh sách task
         recyclerView.setLayoutManager(new LinearLayoutManager(this)); // thiết lập layout cho recycler view
         recyclerView.setAdapter(taskAdapter); // thiết lập adapter cho recycler view
+
+        addButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, AddTaskActivity.class);
+            startActivity(intent);
+        });
 
     }
 }

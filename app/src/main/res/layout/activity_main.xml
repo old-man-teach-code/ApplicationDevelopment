@@ -8,16 +8,26 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_weight="1"
+        android:capitalize="characters"
+        android:text="Danh sách Task"
+        android:textAlignment="center"
+        android:textSize="34sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="625dp"
+        android:layout_weight="1" />
+
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="106dp"
         android:layout_weight="1"
         android:text="Add Task" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1" />
 </LinearLayout>
